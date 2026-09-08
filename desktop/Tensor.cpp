@@ -1,0 +1,69 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include "Tensor.hpp"
+
+Tensor::Tensor(std::vector<int> shape) {
+  this->shape = shape;
+  
+  size_t shape_length = shape.size();
+
+  this->strides.resize(shape_length);
+  this->strides[shape_length-1] = 1;
+
+  for (int i=shape_length-2; i>=0; i--) {
+    this->strides[i] = this->strides[i+1] * shape[i+1];
+  }
+
+  int total_size = 1;
+  for (int i=0; i<shape_length; i++) {
+    total_size *= shape[i];
+  }
+
+  this->data.resize(total_size);
+}
+
+const float& Tensor::at(std::vector<int> indices) const {
+  int flat_index = 0;
+  
+  for (int i = 0; i < indices.size(); i++) {
+    flat_index += indices[i] * strides[i];
+  }
+  return data[flat_index];
+}
+
+float& Tensor::at(std::vector<int> indices) {
+  return const_cast<float&>(static_cast<const Tensor&>(*this).at(indices));
+}
+
+Tensor Tensor::matmul(const Tensor& tensor_b) const {
+  assert(this->shape[0] == tensor_b.shape[1]);
+
+  int rows_a = this->shape[0];
+  int cols_a = this->shape[1];
+  int cols_b = tensor_b.shape[1];
+
+  Tensor result({rows_a, cols_b});
+
+  for (int i=0; i<rows_a; ++i) {
+    for (int j=0; j<cols_b; ++j) {
+      for (int k=0; k<cols_a; ++k) {
+        result.at({i, j}) += this->at({i, k}) * tensor_b.at({k, j});
+      }
+    }
+  }
+
+  return result;
+}
+
+void Tensor::print() const {
+  int rows = this->shape[0];
+  int cols = this->shape[1];
+
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+      std::cout << this->at({i, j}) << "\t";
+    }
+    std::cout << std::endl;
+  }
+}
