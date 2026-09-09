@@ -6,7 +6,11 @@ class Tensor {
     float& at(std::vector<int> indices);
     const float& at(std::vector<int> indices) const;
     Tensor matmul(const Tensor& tensor_b) const;
+    Tensor add(const Tensor& tensor_b) const;
     void print() const;
+    void fill(float value);
+    std::vector<int> getShape() const; // returns copy of shape (read only)
+    Tensor relu() const;
   
   private:
     std::vector<int> shape;

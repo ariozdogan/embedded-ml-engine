@@ -1,7 +1,8 @@
+#include "Tensor.hpp"
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include "Tensor.hpp"
+#include <algorithm>
 
 Tensor::Tensor(std::vector<int> shape) {
   this->shape = shape;
@@ -25,7 +26,7 @@ Tensor::Tensor(std::vector<int> shape) {
 
 const float& Tensor::at(std::vector<int> indices) const {
   int flat_index = 0;
-  
+
   for (int i = 0; i < indices.size(); i++) {
     flat_index += indices[i] * strides[i];
   }
@@ -56,6 +57,18 @@ Tensor Tensor::matmul(const Tensor& tensor_b) const {
   return result;
 }
 
+Tensor Tensor::add(const Tensor& tensor_b) const {
+  assert(this->shape == tensor_b.shape);
+
+  Tensor result(this->shape);
+
+  for (size_t i=0; i<this->data.size(); ++i) {
+    result.data[i] = this->data[i] + tensor_b.data[i];
+  }
+
+  return result;
+}
+
 void Tensor::print() const {
   int rows = this->shape[0];
   int cols = this->shape[1];
@@ -66,4 +79,24 @@ void Tensor::print() const {
     }
     std::cout << std::endl;
   }
+}
+  
+void Tensor::fill(float value) {
+  for (size_t i=0; i<this->data.size(); ++i) {
+    this->data[i] = value;
+  }
+}
+
+std::vector<int> Tensor::getShape() const {
+  return shape;
+}
+
+Tensor Tensor::relu() const {
+  Tensor result(this->shape);
+
+  for (size_t i=0; i<this->data.size(); ++i) {
+    result.data[i] = std::max(0.0f, this->data[i]);
+  }
+
+  return result;
 }
