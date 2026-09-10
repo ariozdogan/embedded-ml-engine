@@ -11,6 +11,7 @@ class Tensor {
     void fill(float value);
     std::vector<int> getShape() const; // returns copy of shape (read only)
     Tensor relu() const;
+    Tensor softmax() const;
   
   private:
     std::vector<int> shape;

@@ -3,6 +3,7 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
+#include <cmath>
 
 Tensor::Tensor(std::vector<int> shape) {
   this->shape = shape;
@@ -96,6 +97,30 @@ Tensor Tensor::relu() const {
 
   for (size_t i=0; i<this->data.size(); ++i) {
     result.data[i] = std::max(0.0f, this->data[i]);
+  }
+
+  return result;
+}
+
+Tensor Tensor::softmax() const {
+  Tensor result(this->shape);
+
+  for (size_t row=0; row<this->shape[0]; ++row) {
+    float max_value = 0;
+    float exp_sum = 0;
+
+    for (size_t col=0; col<this->shape[1]; ++col) {
+      if (this->data[row*shape[1] + col] > max_value) {
+        max_value = this->data[row*shape[1] + col];
+      }
+    }
+    for (size_t col=0; col<this->shape[1]; ++col) {
+      result.data[row*shape[1] + col] = std::exp(this->data[row*shape[1] + col] - max_value);
+      exp_sum += result.data[row*shape[1] + col];
+    }
+    for (size_t col=0; col<this->shape[1]; ++col) {
+      result.data[row*shape[1] + col] = result.data[row*shape[1] + col] / exp_sum;
+    }
   }
 
   return result;
