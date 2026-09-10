@@ -39,7 +39,7 @@ float& Tensor::at(std::vector<int> indices) {
 }
 
 Tensor Tensor::matmul(const Tensor& tensor_b) const {
-  assert(this->shape[0] == tensor_b.shape[1]);
+  assert(this->shape[1] == tensor_b.shape[0]);
 
   int rows_a = this->shape[0];
   int cols_a = this->shape[1];
@@ -122,6 +122,20 @@ Tensor Tensor::softmax() const {
       result.data[row*shape[1] + col] = result.data[row*shape[1] + col] / exp_sum;
     }
   }
+
+  return result;
+}
+
+Tensor Tensor::flatten() const {
+  int batch = this->shape[0];
+  int channels = this->shape[1];
+  int height = this->shape[2];
+  int width = this->shape[3];
+
+  std::vector<int> newShape = {batch, channels * height * width};
+  Tensor result(newShape);
+
+  result.data = this->data;
 
   return result;
 }

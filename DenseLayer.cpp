@@ -3,8 +3,8 @@
 DenseLayer::DenseLayer(int in_features, int out_features)
     : W({in_features, out_features}), bias({out_features}) {
 
-      W.fill(0.1);
-      bias.fill(0.1);
+    W.fill(0.1);
+    bias.fill(0.1);
 }
 
 Tensor DenseLayer::forward(const Tensor& input) const {

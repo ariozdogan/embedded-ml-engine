@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Tensor.hpp"
 
 class DenseLayer {
