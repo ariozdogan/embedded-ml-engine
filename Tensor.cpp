@@ -71,15 +71,20 @@ Tensor Tensor::add(const Tensor& tensor_b) const {
 }
 
 void Tensor::print() const {
-  int rows = this->shape[0];
-  int cols = this->shape[1];
-
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < cols; j++) {
-      std::cout << this->at({i, j}) << "\t";
+  std::cout << "Shape: (";
+  for (size_t i=0; i<this->shape.size(); ++i) {
+    std::cout << this->shape[i];
+    if (i < this->shape.size() - 1) {
+      std::cout <<", ";
     }
-    std::cout << std::endl;
   }
+  std::cout << ")   " << std::endl;
+
+  for (size_t i=0; i<this->data.size(); ++i) {
+    std::cout << this->data[i] << "  ";
+  }
+  std::cout << std::endl;
+  std::cout << std::endl;
 }
   
 void Tensor::fill(float value) {
@@ -136,6 +141,51 @@ Tensor Tensor::flatten() const {
   Tensor result(newShape);
 
   result.data = this->data;
+
+  return result;
+}
+
+Tensor Tensor::maxpool() const {
+  int batch = this->shape[0];
+  int in_channels = this->shape[1];
+  int height = this->shape[2];
+  int width = this->shape[3];
+
+  int out_channels = in_channels;
+  int out_height = height / 2; // 2x2 matrix
+  int out_width = width / 2;
+
+  Tensor result({batch, out_channels, out_height, out_width});
+
+  for (int b = 0; b < batch; ++b) {
+    for (int out_c = 0; out_c < out_channels; ++out_c) {
+      for (int out_row = 0; out_row < out_height; ++out_row) {
+        for (int out_col = 0; out_col < out_width; ++out_col) {
+          
+          int first_row = out_row * 2 + 0;
+          int first_col = out_col * 2 + 0;
+          float max_value = this->at({b, out_c, first_row, first_col});
+
+          for (int k_r = 0; k_r < 2; ++k_r) {
+            for (int k_c = 0; k_c < 2; ++k_c) {
+
+              int input_row = out_row * 2 + k_r;
+              int input_col = out_col * 2 + k_c;
+
+              float value = this->at({b, out_c, input_row, input_col});
+
+              if (value > max_value) {
+                  max_value = value;
+              }
+            }
+          }
+
+          result.at({b, out_c, out_row, out_col}) = max_value;
+
+        }
+      }
+    }
+  }
 
   return result;
 }

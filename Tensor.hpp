@@ -15,6 +15,8 @@ class Tensor {
     Tensor relu() const;
     Tensor softmax() const;
     Tensor flatten() const; 
+    Tensor maxpool() const;
+
   private:
     std::vector<int> shape;
     std::vector<int> strides;
