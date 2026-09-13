@@ -1,9 +1,9 @@
 import torch.nn as nn
 
-class TinyMLModel(nn.module):
+class TinyMLModel(nn.Module):
   def __init__(self):
     super().__init__()
-    self.conv1 = nn.Conv2d(in_channels=1, out_channels=8, kernel_size=3, stride=1, padding=1) 
+    self.conv1 = nn.Conv2d(in_channels=1, out_channels=8, kernel_size=3) 
     # conv2d output = input - kernel_size + 1 = 28 - 3 + 1 = 26
     self.relu = nn.ReLU()
     self.maxpool = nn.MaxPool2d(kernel_size=2, stride=2)
