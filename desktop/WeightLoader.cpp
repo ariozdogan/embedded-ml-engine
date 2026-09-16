@@ -1,5 +1,3 @@
-#pragma once
-
 #include "Tensor.hpp"
 #include "WeightLoader.hpp"
 #include <fstream>

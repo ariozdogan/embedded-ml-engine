@@ -22,3 +22,8 @@ Tensor DenseLayer::forward(const Tensor& input) const {
 
   return result; // returns tensor with (feature * weight) + bias in each index
 }
+
+void DenseLayer::loadWeights(Tensor newWeight, Tensor newBias) {
+  W = newWeight;
+  bias = newBias;
+}

@@ -6,6 +6,7 @@ class Conv2D {
   public:
     Conv2D(int in_channels, int out_channels);
     Tensor forward(const Tensor& input) const;
+    void loadWeights(Tensor newKernel, Tensor newBias);
 
   private:
     Tensor kernel; // shape: (out_channels, in_channels, 3, 3)

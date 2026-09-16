@@ -53,3 +53,8 @@ Tensor Conv2D::forward(const Tensor& input) const {
 
   return result;
 }
+
+void Conv2D::loadWeights(Tensor newKernel, Tensor newBias) {
+  kernel = newKernel;
+  bias = newBias;
+}

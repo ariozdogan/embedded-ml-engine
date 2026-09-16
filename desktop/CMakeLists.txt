@@ -1,4 +1,4 @@
 cmake_minimum_required(VERSION 3.10)
 project(TinyMLInferenceEngine)
 
-add_executable(main main.cpp Tensor.cpp DenseLayer.cpp Conv2D.cpp)
+add_executable(main main.cpp Tensor.cpp DenseLayer.cpp Conv2D.cpp WeightLoader.cpp Model.cpp)
