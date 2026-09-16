@@ -12,10 +12,10 @@ def write_tensor(f, tensor):
 
 test_data = datasets.MNIST(root="../data", train=False, download=True, transform=transforms.ToTensor())
 
-image, label = test_data[0]
-print("true label", label)
+for i in range(50):
+  image, label = test_data[i]
+  image = image.unsqueeze(0)
 
-image = image.unsqueeze(0)
-
-with open("../data/test_image.bin", "wb") as f:
-  write_tensor(f, image)
+  with open(f"../data/test_{i+1}.bin", "wb") as f:
+    write_tensor(f, image)
+    f.write(struct.pack('i', label))

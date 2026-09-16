@@ -18,6 +18,7 @@ class Tensor {
     Tensor maxpool() const;
     void setFlat(size_t index, float value);
     size_t size() const;
+    int argmax() const;
 
   private:
     std::vector<int> shape;

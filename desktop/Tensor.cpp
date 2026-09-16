@@ -197,3 +197,18 @@ void Tensor::setFlat(size_t index, float value) {
 size_t Tensor::size() const {
   return data.size();
 }
+
+int Tensor::argmax() const {
+  float max = this->at({0, 0});
+  int return_index = 0;
+
+  for (int i = 1; i < 10; ++i) {
+    float value = this->at({0, i});
+    if (value > max) {
+      max = value;
+      return_index = i;
+    }
+  }
+
+  return return_index;
+}
