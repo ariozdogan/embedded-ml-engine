@@ -16,6 +16,8 @@ class Tensor {
     Tensor softmax() const;
     Tensor flatten() const; 
     Tensor maxpool() const;
+    void setFlat(size_t index, float value);
+    size_t size() const;
 
   private:
     std::vector<int> shape;

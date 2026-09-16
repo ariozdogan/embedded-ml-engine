@@ -18,7 +18,7 @@ def write_tensor(f, tensor):
 
   f.write(data.tobytes())
 
-  with open("../data/model_weights.pth")as f:
+  with open("../data/model_weights.pth", "wb")as f:
     write_tensor(f, model.conv1.weight)
     write_tensor(f, model.conv1.bias)
     write_tensor(f, model.fc1.weight)

@@ -189,3 +189,11 @@ Tensor Tensor::maxpool() const {
 
   return result;
 }
+
+void Tensor::setFlat(size_t index, float value) {
+  data[index] = value;
+}
+
+size_t Tensor::size() const {
+  return data.size();
+}
