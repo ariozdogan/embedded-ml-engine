@@ -1,8 +1,11 @@
 #include "Tensor.hpp"
 #include "WeightLoader.hpp"
 #include <fstream>
+#include <iostream>
 
 Tensor readTensor(std::ifstream& file) {
+  std::cout << "file is open: " << file.is_open() << std::endl;
+
   int num_dims;
   // reinterprets the memory address of the int* as a char* so read() accepts it
   file.read(reinterpret_cast<char*>(&num_dims), sizeof(int)); 

@@ -1,7 +1,7 @@
 #include "Model.hpp"
 #include "WeightLoader.hpp"
 
-Model::Model() : conv1(1, 8), dense1(1568, 10) { // (1 input channel, 8 output), (1568 flattened features, 10 output classes)
+Model::Model() : conv1(1, 8), dense1(1352, 10) { // (1 input channel, 8 output), (1568 flattened features, 10 output classes)
   std::ifstream file("../../data/weights.bin", std::ios::binary); 
 
   Tensor conv_kernel = readTensor(file);

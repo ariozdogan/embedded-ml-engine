@@ -1,4 +1,5 @@
 #include "DenseLayer.hpp"
+#include <iostream>
 
 DenseLayer::DenseLayer(int in_features, int out_features)
     : W({in_features, out_features}), bias({out_features}) {
@@ -8,6 +9,9 @@ DenseLayer::DenseLayer(int in_features, int out_features)
 }
 
 Tensor DenseLayer::forward(const Tensor& input) const {
+  std::cout << "input shape: " << input.getShape()[0] << ", " << input.getShape()[1] << std::endl;
+  std::cout << "W shape: " << W.getShape()[0] << ", " << W.getShape()[1] << std::endl;
+
   Tensor result = input.matmul(W); // shape: (batch, out_features)
 
   std::vector<int> shape = result.getShape();

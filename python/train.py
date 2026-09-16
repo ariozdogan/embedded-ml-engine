@@ -33,4 +33,4 @@ for epoch in range(epochs):
 
   print(f"Epoch {epoch+1}: loss was {running_loss / len(data.train_loader)}")
 
-torch.save(model.state_dict(), "../data/model_weigths.pth")
+torch.save(model.state_dict(), "../data/model_weights.pth")
