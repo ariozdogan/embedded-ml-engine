@@ -1,0 +1,36 @@
+Command: /Users/ariozdogan/.espressif/python_env/idf6.2_py3.13_env/bin/python /Users/ariozdogan/esp/esp-idf/tools/idf_monitor.py -p /dev/tty.usbmodem101 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /Users/ariozdogan/tinyml-inference-engine/embedded/hello_world/build/hello_world.elf /Users/ariozdogan/tinyml-inference-engine/embedded/hello_world/build/bootloader/bootloader.elf -m '/Users/ariozdogan/.espressif/python_env/idf6.2_py3.13_env/bin/python' '/Users/ariozdogan/esp/esp-idf/tools/idf.py' '-p' '/dev/tty.usbmodem101'
+[1;33m--- WARNING:[0m Serial ports accessed as /dev/tty.* will hang gdb if launched.
+--- NOTE: Using /dev/cu.usbmodem101 instead...
+--- esp-idf-monitor 1.10.0 on /dev/cu.usbmodem101 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+--- 0x40041a76: ets_delay_us in ROM
+[1;38;2;204;51;17m--- ERROR:[0m read failed: [Errno 6] Device not configured
+--- Waiting for the device to reconnect.
+--- 0x4037a821: esp_restart_noos at /Users/ariozdogan/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:169
+--- 0x403c8700: _stext at ??:?
+--- 0x403c88e8: call_start_cpu0 at /Users/ariozdogan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+--- 0x4037a821: esp_restart_noos at /Users/ariozdogan/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:169
+--- 0x403c8700: _stext at ??:?
+--- 0x403c88e8: call_start_cpu0 at /Users/ariozdogan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+--- 0x4037a821: esp_restart_noos at /Users/ariozdogan/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:169
+--- 0x403c8700: _stext at ??:?
+--- 0x403c88e8: call_start_cpu0 at /Users/ariozdogan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+--- 0x4037a821: esp_restart_noos at /Users/ariozdogan/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:169
+--- 0x403c8700: _stext at ??:?
+--- 0x403c88e8: call_start_cpu0 at /Users/ariozdogan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+--- 0x4037a821: esp_restart_noos at /Users/ariozdogan/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:169
+--- 0x403c8700: _stext at ??:?
+--- 0x403c88e8: call_start_cpu0 at /Users/ariozdogan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+--- 0x4037a821: esp_restart_noos at /Users/ariozdogan/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:169
+--- 0x403c8700: _stext at ??:?
+--- 0x403c88e8: call_start_cpu0 at /Users/ariozdogan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+--- 0x4037a821: esp_restart_noos at /Users/ariozdogan/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:169
+--- 0x403c8700: _stext at ??:?
+--- 0x403c88e8: call_start_cpu0 at /Users/ariozdogan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+--- 0x4037a821: esp_restart_noos at /Users/ariozdogan/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:169
+--- 0x403c8700: _stext at ??:?
+--- 0x403c88e8: call_start_cpu0 at /Users/ariozdogan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+--- 0x4037a821: esp_restart_noos at /Users/ariozdogan/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:169
+--- 0x403c8700: _stext at ??:?
+--- 0x403c88e8: call_start_cpu0 at /Users/ariozdogan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+
