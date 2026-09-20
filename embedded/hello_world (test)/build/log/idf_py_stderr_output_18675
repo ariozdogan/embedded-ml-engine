@@ -1,4 +1,0 @@
-Command: cmake -G Ninja -B /Users/ariozdogan/tinyml-inference-engine/embedded/hello_world/build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/Users/ariozdogan/.espressif/python_env/idf6.2_py3.13_env/bin/python -DESP_PLATFORM=1 -DIDF_TARGET=esp32s3 -DCCACHE_ENABLE=False -DCONFIGDEP_ENABLE=True /Users/ariozdogan/tinyml-inference-engine/embedded/hello_world
-NOTE: Kconfig parser version: 1
-NOTE: Kconfig defaults policy: use sdkconfig
-NOTE: Status: Finished successfully

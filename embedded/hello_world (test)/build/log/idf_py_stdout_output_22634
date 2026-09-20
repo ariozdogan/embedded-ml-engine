@@ -1,8 +1,0 @@
-Command: ninja all
-[1/4] cd /Users/ariozdogan/tinyml-inference-engine/embedded/hello_world/build && /Users/ariozdogan/.espressif/python_env/idf6.2_py3.13_env/bin/python /Users/ariozdogan/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /Users/ariozdogan/tinyml-inference-engine/embedded/hello_world/build/partition_table/partition-table.bin /Users/ariozdogan/tinyml-inference-engine/embedded/hello_world/build/hello_world.bin
-hello_world.bin binary size 0x24d20 bytes. Smallest app partition is 0x100000 bytes. 0xdb2e0 bytes (86%) free.
-[2/4] Performing build step for 'bootloader'
-[1/1] cd /Users/ariozdogan/tinyml-inference-engine/embedded/hello_world/build/bootloader && /Users/ariozdogan/.espressif/python_env/idf6.2_py3.13_env/bin/python /Users/ariozdogan/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /Users/ariozdogan/tinyml-inference-engine/embedded/hello_world/build/bootloader/bootloader.bin
-Bootloader binary size 0x4ff0 bytes. 0x3010 bytes (38%) free.
-[3/4] No install step for 'bootloader'
-[4/4] Completed 'bootloader'

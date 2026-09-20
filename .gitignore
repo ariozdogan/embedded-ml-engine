@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+python/.venv/
+*.egg-info/
+
+# CMake / ESP-IDF build output
+build/
+sdkconfig.old
+
+# Generated model artifacts (regenerate via python/export.py)
+embedded/embedded_esp32/main/weights.bin
+
+# Datasets
+data/MNIST/
+data/*.pth
