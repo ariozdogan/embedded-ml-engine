@@ -3,7 +3,6 @@
 #include "Tensor.hpp"
 #include "Conv2D.hpp"
 #include "DenseLayer.hpp"
-#include <fstream>
 
 class Model {
   public:

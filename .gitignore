@@ -9,10 +9,12 @@ python/.venv/
 
 # CMake / ESP-IDF build output
 build/
+sdkconfig
 sdkconfig.old
 
-# Generated model artifacts (regenerate via python/export.py)
-embedded/embedded_esp32/main/weights.bin
+# Generated model/test artifacts (regenerate via python/export.py, python/export_mnist.py)
+embedded/main/weights.bin
+embedded/main/test_*.bin
 
 # Datasets
 data/MNIST/
