@@ -1,17 +1,17 @@
 #include "DenseLayer.hpp"
 #include <iostream>
 
-DenseLayer::DenseLayer(int in_features, int out_features)
-    : W({in_features, out_features}), bias({out_features}) {
 
+// fully-connected (dense) layer 
+DenseLayer::DenseLayer(int in_features, int out_features)
+    : W({in_features, out_features}), bias({out_features}) { 
+
+    // placeholder constants before filled with actual weights in Model
     W.fill(0.1);
     bias.fill(0.1);
 }
 
 Tensor DenseLayer::forward(const Tensor& input) const {
-  std::cout << "input shape: " << input.getShape()[0] << ", " << input.getShape()[1] << std::endl;
-  std::cout << "W shape: " << W.getShape()[0] << ", " << W.getShape()[1] << std::endl;
-
   Tensor result = input.matmul(W); // shape: (batch, out_features)
 
   std::vector<int> shape = result.getShape();
